@@ -1,0 +1,40 @@
+.veles_img {
+    padding-right: 1.6%;
+    padding-top: 1%;
+    float: left;
+    clear: both;
+}
+
+.form {
+    text-align: center;
+}
+
+.rep {
+    color: rgb(0, 191, 255);
+    text-decoration: none;
+  }
+
+.rep:hover, .rep:active {
+    color: #0000ff;
+}
+
+.ciao:hover {
+  box-shadow: 0px 0px 8px lightgrey;
+}
+
+.fot:hover {
+  box-shadow: 0px 0px 20px yellow;
+}
+
+.git {
+    color: white;
+}
+
+.git:hover, .git:active {
+    color: darkblue;
+}
+
+.form textarea {
+    width: 60%;
+    max-width: 100%;
+}

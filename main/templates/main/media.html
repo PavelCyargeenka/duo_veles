@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+{% for picture in pictures %}
+    <img style="margin: 2%;" class="fot img-fluid"
+         src="{{ picture.foto.url }}" width="45%" height="45%">
+{% endfor %}
+</div>
+{% endblock %}

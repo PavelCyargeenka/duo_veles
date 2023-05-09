@@ -1,0 +1,20 @@
+{% load static %}
+<div style="text-align: center;" class="d-sm-flex flex-sm-row mb-3 bg-dark">
+    <div class="p-2 flex-fill bg-dark"><img src="{% static 'logo.png' %}" height="27" width="27"></div>
+    {% for key, value in navbar_dict.items %}
+    {% url key as url %}
+    {% if request.path == url %}
+    <div class="p-2 flex-fill bg-dark text-danger">
+        <a class="ciao nav-link active" href="{{ url }}">{{ value }}</a></div>
+    {% else %}
+    <div class="p-2 flex-fill bg-dark text-white">
+        <a class="ciao nav-link" href="{{ url }}">{{ value }}</a></div>
+    {% endif %}
+    {% endfor %}
+    {% for link in links %}
+    <div class="p-2 flex-fill bg-dark text-white"><a target="_blank" class="ciao nav-link" href="{{ link.link }}">
+        <img src="{{ link.icon.url }}" alt="{{ link.name }}" width="20" height="20"></a></div>
+    {% endfor %}
+</div>
+
+

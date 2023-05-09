@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div style="padding-bottom: 2%; padding-top:2%" class="container mt-3">
+<h2 style="text-align: center; padding: 1%;">
+  Welcome to the <span style="color: red;">Duo Veles</span> official website!</h2>
+</div>
+
+<div style="text-align: center" class="container mt-3">
+  {% for video in videos %}
+    {% if forloop.counter0 == 0 or forloop.counter0|divisibleby:"3" %}
+  <div class="row">
+    {% endif %}
+    <div style="padding-bottom: 2%;" class="col-lg-4 mx-auto">
+      <iframe class="fot"
+        src="{{ video.src }}"
+        title="{{ video.title }}"
+        frameborder="0"
+        allow="{{ allow }}"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+    {% if forloop.counter0|add:"1"|divisibleby:"3" %}
+  </div>
+  {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+
+<div style="padding-bottom: 2%; padding-top:2%" class="container mt-3">
+<h2 style="text-align: center; padding: 1%;">
+  <span style="color: red;">Duo Veles</span> repertoire </h2>
+</div>
+
+<div class="container mt-3 pb-5">
+{% for composer in composers %}
+    {% for opera in composer.operas.all %}
+        <div class="container mt-3 text-center">
+            {% if opera.op_songs.all %}
+                <a class="rep" href="#{{ opera.pk }}" data-bs-toggle="collapse" data-bs-target="#{{ opera.pk }}">
+                    <p><strong>{{ composer.name }}
+                {% if composer.years %}
+                    ({{ composer.years }})
+                {% endif %} -
+                {{ opera.title }}
+                {% if opera.opus %}
+                    {{ opera.opus }}
+                    {% endif %}</strong>
+                </p></a>
+            {% else %}
+                <p><strong>{{ composer.name }}
+                {% if composer.years %}
+                    ({{ composer.years }})
+                {% endif %} -
+                {{ opera.title }}
+                {% if opera.opus %}
+                    {{ opera.opus }}
+                    {% endif %}</strong>
+                </p>
+            {% endif %}
+            {% if opera.parts.all %}
+                {% for part in opera.parts.all %}
+                    <p class="collapse" id="{{ opera.pk }}"><i>{{ part.part }}</i></p>
+                    <ul class="collapse" id="{{ opera.pk }}" style="list-style-type: none; margin-left: -15px;">
+                    {% for song in part.songs.all %}
+                        <li>{{ song.song }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endfor %}
+            {% else %}
+                {% if opera.op_songs.all %}
+                    <ul class="collapse" id="{{ opera.pk }}" style="list-style-type: none; margin-left: -30px;">
+                    {% for song in opera.op_songs.all %}
+                        <li>{{ song.song }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endfor %}
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title|capfirst }}{% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-3 pt-2">
+  <img class="veles_img" src="{{ bio.foto_veles.url }}" alt="{{ title }}" width="40%" height="40%">
+  <p>
+    <strong style="color: red; font-size: large">Duo Veles</strong> is a musical
+    collaboration between soprano
+    <strong><a class="rep" href="{% url 'bio_component' slug=mateja.slug %}">{{ mateja.name }}</a></strong>
+    and guitarist
+    <strong><a class="rep" href="{% url 'bio_component' slug=pavel.slug %}">{{ pavel.name }}</a></strong>.
+    The duo's musical journey began in 2015 when they met at a chamber music
+    course in Trieste, Italy, held by Fedra Florit at the Conservatorio
+    "Giuseppe Tartini." During their studies, Mateja and Pavel performed
+    together at numerous concerts and cultural events.
+  </p>
+
+  <p>
+    After completing their studies, the duo's passion for music led them to
+    continue the concert activity and musical research. Pavel and Mateja devoted
+    themselves to developing their unique style and artistic personality,
+    exploring a vast repertoire that includes music from various parts of the
+    world, such as Italy, Spain, France, England, Brazil, Greece, and Belarus.
+  </p>
+
+  <p>
+    Duo Veles honed their skills at the prestigious Accademia Musicale Chigiana
+    in Siena, under the guidance of Maestro Oscar Ghiglia in 2019. They received
+    many accolades for their performances and were awarded a scholarship for
+    their impressive accomplishments.
+  </p>
+
+  <p>
+    Veles collaborates with various festivals and concert producers, showcasing
+    their passion and creativity through their captivating performances. Their
+    partnerships include ACM Chamber Music Trieste, Piccolo Opera Festival,
+    KarsiArt, Fondazione Vignola, Musica e Arte Cento, and Ikarus Festival,
+    among others.
+  </p>
+</div>
+{% endblock %}

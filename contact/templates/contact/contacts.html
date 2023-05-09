@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+
+<div style="padding-bottom: 1%; padding-top: 1%" class="container mt-3">
+<h2 style="text-align: center; padding: 1%;"> Contact us! </h2>
+</div>
+
+
+<div style="padding-bottom: 10%;" class="form">
+<form  method="post" target="_self">
+    {% csrf_token %}
+    {% for field in form %}
+        <div>
+            {{ field.errors }}
+            {{ field.label_tag }} <br>
+            {{ field }}
+        </div>
+    {% endfor %}
+    <input type="submit" class="btn btn-secondary" value="Submit!">
+</form>
+</div>
+
+
+{% endblock %}

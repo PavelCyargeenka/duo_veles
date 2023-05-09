@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ component.name }}{% endblock %}
+
+
+{% block content %}
+<div class="container mt-3">
+<img class="veles_img" src="{{ component.picture.url }}" height="25%" width="25%">
+<p>{{ component.bio|safe|linebreaks }}</p>
+</div>
+{% endblock %}

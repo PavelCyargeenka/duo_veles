@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<style>
+body {
+    background-image: url('{% static 'wepik-export-20230505093948FkXf.jpeg' %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+</style>
+
+<body>
+<div class="container-fluid mt-3">
+{% include 'navbar.html' %}
+{% block content %}{% endblock %}
+
+<span style="position: fixed; bottom: 0; right: 0;" class="badge bg-secondary">Copyright © 2023 Duo Veles. Developed by
+    <a class="git" href="https://github.com/PavelCyargeenka">Pavel Cyargeenka</a></span>
+
+</div>
+<script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
